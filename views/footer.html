@@ -1,3 +1,17 @@
+<div id="footer">
+	<hr /> 
+	<footer>
+		<p>网站基于Nodejs开发 版权所有 © 2013 <a href="http://www.hankewins.com/" target="_blank">Hankewins</a></p> 
+		<p>
+		<% if (locals.config.footer && locals.config.footer.length > 0) {%>
+			<% locals.config.footer.forEach(function(link){ %>
+				<a href="<%- link.href %>"><%- link.text %></a>
+			<% }); %>
+		<% } %>
+		</p>
+	</footer>
+</div>
+</div>
 <script src="/assets/js/jquery-1.9.1.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 </body>

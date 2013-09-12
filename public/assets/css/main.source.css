@@ -1,0 +1,117 @@
+@charset "UTF-8";
+/*only support webkit browser*/
+/*public vars*/
+/*color vars*/
+/*text vars*/
+/*space vars*/
+/*screen min-width, min-height*/
+/*CSS Reset*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, textarea, select, optgroup, option, fieldset, legend, p, blockquote, th, td {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+input, button, textarea, select, optgroup, option {
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+em, i {
+  font-style: normal;
+}
+
+img {
+  border: none;
+}
+
+input, img {
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*
+ * 1rem=20px for 320px(中低端分辨率).
+ * 1rem=22.5px for 360px(高端分辨率).
+ */
+body {
+  font: 1rem/1 "\5FAE\8F6F\96C5\9ED1", "\5b8b\4f53", "微软雅黑E软雅黑6F\96C5\9ED1", Helvetica;
+  -webkit-user-select: none;
+  -webkit-text-size-adjust: none;
+}
+
+@media all and (min-width: 360px) {
+  .uc-hack {
+    font-size: 15px;
+  }
+}
+@media all and (min-width: 360px) and (-webkit-device-pixel-ratio: 2) {
+  html {
+    font-size: 15px;
+  }
+}
+.none {
+  display: none;
+}
+
+.no-spacing {
+  margin: 0;
+  padding: 0;
+}
+
+.margin-center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.clearfix::after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.no-flick {
+  -moz-backface-visibility: hidden;
+  /* Firefox */
+  -webkit-backface-visibility: hidden;
+  /* Chrome and Safari */
+  -webkit-transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+body {
+  width: 1000px;
+  margin: 0 auto;
+}

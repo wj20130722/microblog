@@ -1,7 +1,19 @@
-var crypto  = require('crypto');
+
 var User = require('../models/users');
 
-exports.signin = function(req, res) {
+var crypto = require('crypto'); //node核心加载模块
+var config = require('../config').config;
+
+//var mail = require('../services/mail');
+
+/**
+ * show user login page.
+ * @param  {HttpRequest} req
+ * @param  {HttpResponse} res
+ */
+exports.showLogin = function(req, res) {
+	console.log("host:" + req.host);
+	req.session._loginReferer = req.headers.referer;
 	res.render('login', {title:'用户登陆', curNav: 'login'});
 };
 
@@ -45,10 +57,9 @@ exports.register = function(req, res) {
 };
 
 exports.doRegister = function(req, res) {
-	var md5 = crypto.createHash('md5');
 	var username = req.body.username;
 	var password = req.body.password;
-	var email = req.body.password;
+	var email = req.body.email;
 	var password_rep = req.body['password-repeat'];
 
 
@@ -66,7 +77,7 @@ exports.doRegister = function(req, res) {
 		return res.redirect('/register');
 	}
 
-	password = md5.update(req.body.password).digest('hex');
+	password = md5(req.body.password);
 
 	var newUser = new User({
 		name: username,
@@ -97,3 +108,10 @@ exports.doRegister = function(req, res) {
 		res.redirect('/');
 	});
 };
+
+function md5(str) {
+	var md5 = crypto.createHash('md5');
+	md5.update(str);
+	str = md5.digest('hex');
+	return str;
+}

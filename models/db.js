@@ -1,7 +1,7 @@
 /**
  * db.js for model
  */
-var config = require('../config');
+var config = require('../config').config;
 var Db = require('mongodb').Db;
 var Connection = require('mongodb').Connection;
 var Server = require('mongodb').Server;

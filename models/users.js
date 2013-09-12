@@ -47,22 +47,20 @@ User.get = function(name, callback) {
 	    }
 	    //读取 users 集合
 	    db.collection('users', function(err, collection){
-	      if(err){
-	        db.close();
-	        return callback(err);
-	      }
-	      //查找用户名 name 值为 name文档
-	      collection.findOne({
-	        name: name
-	      },function(err, doc){
-	        db.close();
-	        if(doc){
-	          var user = new User(doc);
-	          callback(err, user);//成功！返回查询的用户信息
-	        } else {
-	          callback(err, null);//失败！返回null
-	        }
-	      });
+			if(err){
+				db.close();
+				return callback(err);
+			}
+			//查找用户名 name 值为 name文档
+			collection.findOne({name: name},function(err, doc){
+				db.close();
+				if(doc){
+				  var user = new User(doc);
+				  callback(err, user);//成功！返回查询的用户信息
+				} else {
+				  callback(err, null);//失败！返回null
+				}
+			});
 	    });
 	});
 };

@@ -26,7 +26,7 @@ module.exports = function(app) {
 	app.get('/', index.index);
 
 	app.all('/login', notAuthentication);
-	app.get('/login', login.signin);
+	app.get('/login', login.showLogin);
 	app.post('/login',login.doLogin);
 
 	app.get('/logout', authentication);

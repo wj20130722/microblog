@@ -1,0 +1,9 @@
+@charset "UTF-8";
+@import "compass/css3";
+@import "E:/www/hankewins/component/_sass/vars.scss";
+@import "E:/www/hankewins/component/_sass/func.scss";
+@import "E:/www/hankewins/component/_sass/reset.scss";
+
+@include GIONEE_WEBSITE_REST("REST_ENV_PC");
+
+body {width:1000*$px; margin:0 auto;}
